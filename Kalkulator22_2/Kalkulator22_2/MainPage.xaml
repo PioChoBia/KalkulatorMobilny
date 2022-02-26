@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kalkulator22_2.MainPage">
+    
+    <Grid  Margin="10" ColumnSpacing="10" RowSpacing="10" BackgroundColor="LightGray">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--dispaly-->
+        <BoxView x:Name="boxViewDisplay" BackgroundColor="Beige" 
+                 Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <!-- keys-->
+        <Button x:Name="buttonCE" Text="CE" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="2" Grid.Column="0" Clicked="ButtonCE_Clicked"/>
+        <Button x:Name="buttonMRC" Text="MRC" 
+                FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="2" Grid.Column="1" Clicked="buttonMRC_Clicked"/>
+        <Button x:Name="buttonMSubtraction" Text="M-" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="2" Grid.Column="2" Clicked="buttonMSubtraction_Clicked"/>
+        <Button x:Name="buttonMAddition" Text="M+" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="2" Grid.Column="3" Clicked="buttonMAddition_Clicked"/>
+
+        <Button x:Name="buttonOFF" Text="OFF" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="3" Grid.Column="0"/>
+        <Button x:Name="buttonSQR" Text="SQR" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="3" Grid.Column="1"/>
+        <Button x:Name="buttonPercent" Text="%" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="3" Grid.Column="2"/>
+        <Button x:Name="buttonDivide" Text="/" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="3" Grid.Column="3"/>
+
+        <Button x:Name="button7" Text="7" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="4" Grid.Column="0"/>
+        <Button x:Name="button8" Text="8" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="4" Grid.Column="1"/>
+        <Button x:Name="button9" Text="9" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="4" Grid.Column="2"/>
+        <Button x:Name="buttonMultiplication" Text="*" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="4" Grid.Column="3"/>
+
+        <Button x:Name="button4" Text="4" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="5" Grid.Column="0"/>
+        <Button x:Name="button5"  Text="5" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="5" Grid.Column="1"/>
+        <Button x:Name="button6"  Text="6" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="5" Grid.Column="2"/>
+        <Button x:Name="buttonSubtraction"  Text="-" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="5" Grid.Column="3"/>
+
+        <Button x:Name="button1" Text="1" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="6" Grid.Column="0"/>
+        <Button x:Name="button2"  Text="2" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="6" Grid.Column="1"/>
+        <Button x:Name="button3"  Text="3" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="6" Grid.Column="2"/>
+        <Button x:Name="buttonAddition"  Text="+" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="6" Grid.RowSpan="2" Grid.Column="3"/>
+
+        <Button x:Name="button0" Text="0" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="7" Grid.Column="0"/>
+        <Button x:Name="button."  Text="." FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="7" Grid.Column="1"/>
+        <Button x:Name="button="  Text="=" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+                Grid.Row="7" Grid.Column="2"/>
+
+
+
+    </Grid>
+    
+    
+    
+    <!--
+    <StackLayout>     
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Hello worldvvvv" FontSize="Large" HorizontalOptions="Center"/>
+        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+               
+        
+    </StackLayout>
+-->
+    
+    
+    
+</ContentPage>
