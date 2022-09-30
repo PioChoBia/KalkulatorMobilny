@@ -130,9 +130,23 @@ namespace Kalkulator22_2
 
         private void buttonEqual_Clicked(object sender, EventArgs e)
         {
-            string s1=labelDisplay0.Text;
-            
-          // var list1=new List<double>
+            string s1="";
+
+            String[] separatorOperation = {"+", "-", "*", "/", "(", ")" };
+            String[] number = labelDisplay0.Text.Split(separatorOperation, StringSplitOptions.None);
+
+
+
+            foreach (String s2 in number)
+            {
+                s1 += s2 + " ";
+            }
+
+           // var listDigit = new List<double> { };
+
+
+
+            labelDisplay1.Text = s1;
 
         }
 
