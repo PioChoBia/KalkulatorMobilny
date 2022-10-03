@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -130,21 +131,23 @@ namespace Kalkulator22_2
 
         private void buttonEqual_Clicked(object sender, EventArgs e)
         {
-            string s1="";
+            string mathExpression = labelDisplay0.Text;
+            if (mathExpression.Substring(0,1) !="+" || mathExpression.Substring(0, 1) != "-") 
+                mathExpression = "+" + mathExpression;
 
-            String[] separatorOperation = {"+", "-", "*", "/", "(", ")" };
-            String[] number = labelDisplay0.Text.Split(separatorOperation, StringSplitOptions.None);
+            String[] separatorOperation1 = { "+", "-", "*", "/", "(", ")" };
+            String[] number = mathExpression.Split(separatorOperation1, StringSplitOptions.None);
 
+            String[] separatorOperation2 = { "0", "1", "2", "3", "4", "5",
+                "6", "7", "8", "9", "."};
+            String[] operation = mathExpression.Split(separatorOperation2, StringSplitOptions.None); ;
 
+            List<Element> elementList = new List<Element> { };
 
-            foreach (String s2 in number)
-            {
-                s1 += s2 + " ";
-            }
+            string s1 = "";
 
-           // var listDigit = new List<double> { };
-
-
+            foreach (string s in number) s1 += s + " ";
+            foreach (string s in operation) s1 += s + " ";
 
             labelDisplay1.Text = s1;
 
@@ -157,12 +160,12 @@ namespace Kalkulator22_2
 
         private void buttonBracketLeft_Clicked(object sender, EventArgs e)
         {
-
+           // labelDisplay0.Text += "(";
         }
 
         private void buttonBracketRight_Clicked(object sender, EventArgs e)
         {
-
+           // labelDisplay0.Text += ")";
         }
 
 
