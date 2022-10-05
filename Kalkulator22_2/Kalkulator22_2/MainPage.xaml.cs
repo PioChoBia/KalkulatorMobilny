@@ -124,9 +124,27 @@ namespace Kalkulator22_2
                     labelDisplay0.Text.Substring(0, labelDisplay0.Text.Length - 1);
         }
 
+  
 
+        public static double ConvertToDouble(string Value)
+        {
+            if (Value == null)
+            {
+                return 0;
+            }
+            else
+            {
+                double OutVal;
+                double.TryParse(Value, out OutVal);
 
-
+                if (double.IsNaN(OutVal) || double.IsInfinity(OutVal))
+                {
+                    return 0;
+                }
+                return OutVal;
+            }
+        }
+    
 
 
         private void buttonEqual_Clicked(object sender, EventArgs e)
@@ -142,10 +160,17 @@ namespace Kalkulator22_2
                 "6", "7", "8", "9", "."};
             String[] operation = mathExpression.Split(separatorOperation2, StringSplitOptions.None); ;
 
+            bool errorMathExpression = false;
             List<Element> elementList = new List<Element> { };
+            for(int i = 0; i < number.Length; i++)
+            {
+           
 
-            string s1 = "";
+            }
 
+
+
+            string s1 = "";            
             foreach (string s in number) s1 += s + " ";
             foreach (string s in operation) s1 += s + " ";
 
