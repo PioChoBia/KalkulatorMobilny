@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+
 namespace Kalkulator22_2
 {
     public partial class MainPage : ContentPage
@@ -126,25 +127,6 @@ namespace Kalkulator22_2
 
   
 
-        public static double ConvertToDouble(string Value)
-        {
-            if (Value == null)
-            {
-                return 0;
-            }
-            else
-            {
-                double OutVal;
-                double.TryParse(Value, out OutVal);
-
-                if (double.IsNaN(OutVal) || double.IsInfinity(OutVal))
-                {
-                    return 0;
-                }
-                return OutVal;
-            }
-        }
-    
 
 
         private void buttonEqual_Clicked(object sender, EventArgs e)
@@ -154,25 +136,53 @@ namespace Kalkulator22_2
                 mathExpression = "+" + mathExpression;
 
             String[] separatorOperation1 = { "+", "-", "*", "/", "(", ")" };
-            String[] number = mathExpression.Split(separatorOperation1, StringSplitOptions.None);
+            String[] number = mathExpression.Split(separatorOperation1, StringSplitOptions.RemoveEmptyEntries);
 
             String[] separatorOperation2 = { "0", "1", "2", "3", "4", "5",
                 "6", "7", "8", "9", "."};
-            String[] operation = mathExpression.Split(separatorOperation2, StringSplitOptions.None); ;
+            String[] operation = mathExpression.Split(separatorOperation2, StringSplitOptions.RemoveEmptyEntries); ;
 
-            bool errorMathExpression = false;
+
+            bool isErrorMathExpression = false;
             List<Element> elementList = new List<Element> { };
+            double d1 = 0;
+
+            
+
             for(int i = 0; i < number.Length; i++)
             {
-           
+                Element element = new Element();
 
+                if (double.TryParse(number[i], out d1)) {
+                    element.Number = d1;                  
+                } else {
+                    isErrorMathExpression = true;
+                    break;
+                }         
+
+                if (operation[i].Length == 1)
+                {
+                    element.Operation = operation[i];
+                } else {
+                    isErrorMathExpression = true;
+                    break;
+                }
+
+                elementList.Add(element);
             }
 
-
-
-            string s1 = "";            
-            foreach (string s in number) s1 += s + " ";
-            foreach (string s in operation) s1 += s + " ";
+            string s1 = "";
+            if (isErrorMathExpression)
+            {
+                s1 = "błąd";
+            } else
+            {
+                foreach( Element e1 in elementList)
+                {
+                    s1+=e1.Operation + " " + e1.Number.ToString()+"  ";
+                }
+            }
+                
 
             labelDisplay1.Text = s1;
 
