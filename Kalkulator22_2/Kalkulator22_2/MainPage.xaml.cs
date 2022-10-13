@@ -143,48 +143,95 @@ namespace Kalkulator22_2
             String[] operation = mathExpression.Split(separatorOperation2, StringSplitOptions.RemoveEmptyEntries); ;
 
 
-            bool isErrorMathExpression = false;
-            List<Element> elementList = new List<Element> { };
-            double d1 = 0;
-
-            
+            string errorMathExpression = "";
+            List<Element> elementList = new List<Element> { };           
 
             for(int i = 0; i < number.Length; i++)
             {
                 Element element = new Element();
+                double d1 = 0;
 
                 if (double.TryParse(number[i], out d1)) {
                     element.Number = d1;                  
                 } else {
-                    isErrorMathExpression = true;
+                    errorMathExpression = "bład zamiany liczby";
                     break;
                 }         
 
                 if (operation[i].Length == 1)
                 {
+                    //w pierwszym elemencie może być + lub -
+                    if ( i==0 && !(operation[i] == "+" || operation[i] == "-" ) ) 
+                    {
+                        errorMathExpression = "błędny operator pierwszej liczby";
+                        break;
+                    }
                     element.Operation = operation[i];
                 } else {
-                    isErrorMathExpression = true;
+                    errorMathExpression = "błędny operator";
                     break;
                 }
 
                 elementList.Add(element);
             }
 
-            string s1 = "";
-            if (isErrorMathExpression)
+
+            if (errorMathExpression=="")
             {
-                s1 = "błąd";
-            } else
-            {
-                foreach( Element e1 in elementList)
+                for (int i = 0; i < elementList.Count; i++)
                 {
-                    s1+=e1.Operation + " " + e1.Number.ToString()+"  ";
+                    if (elementList[i].Operation == "*")
+                    {
+                        elementList[i - 1].Number = elementList[i - 1].Number * elementList[i].Number;
+                        elementList.RemoveAt(i);
+                    }
+                }
+
+                for (int i = 0; i < elementList.Count; i++)
+                {
+                    if (elementList[i].Operation == "/")
+                    {
+                        if (elementList[i].Number == 0)
+                        {
+                            errorMathExpression = "dzielenie przez zero";
+                            break;
+                        } else
+                        {
+                            elementList[i - 1].Number = elementList[i - 1].Number / elementList[i].Number;
+                            elementList.RemoveAt(i);
+                        }
+                    }
                 }
             }
-                
 
-            labelDisplay1.Text = s1;
+            if (errorMathExpression == "")
+            {
+                for (int i = 1; i < elementList.Count; i++)
+                {
+                    if (elementList[i].Operation == "+")
+                    {
+                        elementList[i - 1].Number = elementList[i - 1].Number + elementList[i].Number;
+                        elementList.RemoveAt(i);
+                    }
+                }
+
+                for (int i = 1; i < elementList.Count; i++)
+                {
+                    if (elementList[i].Operation == "-")
+                    {
+                        elementList[i - 1].Number = elementList[i - 1].Number - elementList[i].Number;
+                        elementList.RemoveAt(i);
+                    }
+                }
+            }
+
+            if (errorMathExpression != "")
+            {
+                labelDisplay1.Text = errorMathExpression;
+            } else
+            {
+                labelDisplay1.Text = elementList[0].Number.ToString();
+            }
 
         }
 
