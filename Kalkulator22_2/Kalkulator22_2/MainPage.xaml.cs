@@ -19,17 +19,17 @@ namespace Kalkulator22_2
 
 
 
-        private void buttonMRC_Clicked(object sender, EventArgs e)
+        private void ButtonMRC_Clicked(object sender, EventArgs e)
         { 
 
         }
 
-        private void buttonMSubtraction_Clicked(object sender, EventArgs e)
+        private void ButtonMSubtraction_Clicked(object sender, EventArgs e)
         {
              
         }
 
-        private void buttonMAddition_Clicked(object sender, EventArgs e)
+        private void ButtonMAddition_Clicked(object sender, EventArgs e)
         {
 
         }
@@ -37,77 +37,77 @@ namespace Kalkulator22_2
 
 
  
-        private void button0_Clicked(object sender, EventArgs e)
+        private void Button0_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "0";
         }
 
-        private void button1_Clicked(object sender, EventArgs e)
+        private void Button1_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "1";
         }
 
-        private void button2_Clicked(object sender, EventArgs e)
+        private void Button2_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "2";
         }
 
-        private void button3_Clicked(object sender, EventArgs e)
+        private void Button3_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "3";
         }
 
-        private void button4_Clicked(object sender, EventArgs e)
+        private void Button4_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "4";
         }
 
-        private void button5_Clicked(object sender, EventArgs e)
+        private void Button5_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "5";
         }
 
-        private void button6_Clicked(object sender, EventArgs e)
+        private void Button6_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "6";
         }
 
-        private void button7_Clicked(object sender, EventArgs e)
+        private void Button7_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "7";
         }
 
-        private void button8_Clicked(object sender, EventArgs e)
+        private void Button8_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "8";
         }
 
-        private void button9_Clicked(object sender, EventArgs e)
+        private void Button9_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "9";
         }
 
-        private void buttonDot_Clicked(object sender, EventArgs e)
+        private void ButtonDot_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += ".";
         }
 
-        private void buttonAddition_Clicked(object sender, EventArgs e)
+        private void ButtonAddition_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "+";
         }
 
-        private void buttonSubtraction_Clicked(object sender, EventArgs e)
+        private void ButtonSubtraction_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "-";
         }
 
-        private void buttonMultiplication_Clicked(object sender, EventArgs e)
+        private void ButtonMultiplication_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "*";
         }
 
-        private void buttonDivide_Clicked(object sender, EventArgs e)
+        private void ButtonDivide_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "/";
         }
@@ -118,7 +118,7 @@ namespace Kalkulator22_2
            
         }
 
-        private void buttonDeleteSign_Clicked(object sender, EventArgs e)
+        private void ButtonDeleteSign_Clicked(object sender, EventArgs e)
         {
             if (labelDisplay0.Text.Length >0)
                 labelDisplay0.Text = 
@@ -126,25 +126,24 @@ namespace Kalkulator22_2
         }
 
   
+       // public string countCummationMultiplication
 
 
-
-        private void buttonEqual_Clicked(object sender, EventArgs e)
+        private void ButtonEqual_Clicked(object sender, EventArgs e)
         {
             string mathExpression = labelDisplay0.Text;
             if (mathExpression.Substring(0,1) !="+" || mathExpression.Substring(0, 1) != "-") 
                 mathExpression = "+" + mathExpression;
 
-            String[] separatorOperation1 = { "+", "-", "*", "/", "(", ")" };
-            String[] number = mathExpression.Split(separatorOperation1, StringSplitOptions.RemoveEmptyEntries);
+            String[] separator1 = { "+", "-", "*", "/" };
+            String[] number = mathExpression.Split(separator1, StringSplitOptions.RemoveEmptyEntries);
 
-            String[] separatorOperation2 = { "0", "1", "2", "3", "4", "5",
-                "6", "7", "8", "9", "."};
-            String[] operation = mathExpression.Split(separatorOperation2, StringSplitOptions.RemoveEmptyEntries); ;
+            String[] separator2 = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."};
+            String[] operation = mathExpression.Split(separator2, StringSplitOptions.RemoveEmptyEntries); ;
 
 
             string errorMathExpression = "";
-            List<Element> elementList = new List<Element> { };           
+            List<Element> elementList = new List<Element> { };
 
             for(int i = 0; i < number.Length; i++)
             {
@@ -175,6 +174,7 @@ namespace Kalkulator22_2
                 elementList.Add(element);
             }
 
+            if (errorMathExpression=="" && number.Length != operation.Length) errorMathExpression = "za dużo operatorów";
 
             if (errorMathExpression=="")
             {
@@ -184,6 +184,7 @@ namespace Kalkulator22_2
                     {
                         elementList[i - 1].Number = elementList[i - 1].Number * elementList[i].Number;
                         elementList.RemoveAt(i);
+                        i--;
                     }
                 }
 
@@ -199,6 +200,7 @@ namespace Kalkulator22_2
                         {
                             elementList[i - 1].Number = elementList[i - 1].Number / elementList[i].Number;
                             elementList.RemoveAt(i);
+                            i--;
                         }
                     }
                 }
@@ -212,6 +214,7 @@ namespace Kalkulator22_2
                     {
                         elementList[i - 1].Number = elementList[i - 1].Number + elementList[i].Number;
                         elementList.RemoveAt(i);
+                        i--;
                     }
                 }
 
@@ -221,6 +224,7 @@ namespace Kalkulator22_2
                     {
                         elementList[i - 1].Number = elementList[i - 1].Number - elementList[i].Number;
                         elementList.RemoveAt(i);
+                        i--;
                     }
                 }
             }
@@ -235,17 +239,17 @@ namespace Kalkulator22_2
 
         }
 
-        private void buttonF_Clicked(object sender, EventArgs e)
+        private void ButtonF_Clicked(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonBracketLeft_Clicked(object sender, EventArgs e)
+        private void ButtonBracketLeft_Clicked(object sender, EventArgs e)
         {
            // labelDisplay0.Text += "(";
         }
 
-        private void buttonBracketRight_Clicked(object sender, EventArgs e)
+        private void ButtonBracketRight_Clicked(object sender, EventArgs e)
         {
            // labelDisplay0.Text += ")";
         }
