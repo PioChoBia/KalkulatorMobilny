@@ -1,0 +1,14 @@
+Projekt kalkulatora.
+
+Założenia:
+a/pod android
+b/wpis elementów do obliczenia inżynierski,
+  tzn ciąg cyfr i symboli operatorów, które wykonują się po kliknięciu przycisku =
+  np 1+2/4-8 da nam -6,5
+c/liczy zgodnie z zasadami arytmetyki, 
+  najpierw wymnaża i dzieli, następnie dodaje i odejmuje
+c/w zapisie stringa z działaniami można używać zagnieżdżoych nawiasów
+
+Po co ?
+Aplikacja kalkulator jest na tyle banalna, że nie powinna się domagać aktualizacji. A niestety to się dzieje.
+
