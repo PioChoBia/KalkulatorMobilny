@@ -31,59 +31,58 @@
                FontSize="25" Text=""/>
 
         <!-- keys-->
-        <Button x:Name="buttonCE" Text="CE" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonCE" Text="CE" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0" 
                 Grid.Row="2" Grid.Column="0" Clicked="ButtonCE_Clicked"/>
-        <Button x:Name="buttonMRC" Text="MRC" 
-                FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonMRC" Text="MRC" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="2" Grid.Column="1" Clicked="ButtonMRC_Clicked"/>
-        <Button x:Name="buttonMSubtraction" Text="M-" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonMSubtraction" Text="M-" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="2" Grid.Column="2" Clicked="ButtonMSubtraction_Clicked"/>
-        <Button x:Name="buttonMAddition" Text="M+" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonMAddition" Text="M+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="2" Grid.Column="3" Clicked="ButtonMAddition_Clicked"/>
 
-        <Button x:Name="buttonDeleteSign" Text="&lt;-" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonDeleteSign" Text="&lt;-" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="3" Grid.Column="0" Clicked="ButtonDeleteSign_Clicked"/>
-        <Button x:Name="buttonBracketLeft" Text="(" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonBracketLeft" Text="(" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="3" Grid.Column="1" Clicked="ButtonBracketLeft_Clicked"/>
-        <Button x:Name="buttonBracketRight" Text=")" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonBracketRight" Text=")" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="3" Grid.Column="2" Clicked="ButtonBracketRight_Clicked"/>
-        <Button x:Name="buttonDivide" Text="/" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonDivide" Text="/" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="3" Grid.Column="3" Clicked="ButtonDivide_Clicked"/>
 
-        <Button x:Name="button7" Text="7" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button7" Text="7" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="4" Grid.Column="0" Clicked="Button7_Clicked"/>
-        <Button x:Name="button8" Text="8" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button8" Text="8" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="4" Grid.Column="1" Clicked="Button8_Clicked"/>
-        <Button x:Name="button9" Text="9" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button9" Text="9" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="4" Grid.Column="2" Clicked="Button9_Clicked"/>
-        <Button x:Name="buttonMultiplication" Text="*" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonMultiplication" Text="*" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="4" Grid.Column="3" Clicked="ButtonMultiplication_Clicked"/>
 
-        <Button x:Name="button4" Text="4" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button4" Text="4" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="5" Grid.Column="0" Clicked="Button4_Clicked"/>
-        <Button x:Name="button5"  Text="5" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button5"  Text="5" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="5" Grid.Column="1" Clicked="Button5_Clicked"/>
-        <Button x:Name="button6"  Text="6" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button6"  Text="6" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="5" Grid.Column="2" Clicked="Button6_Clicked"/>
-        <Button x:Name="buttonSubtraction"  Text="-" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonSubtraction"  Text="-" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="5" Grid.Column="3" Clicked="ButtonSubtraction_Clicked"/>
 
-        <Button x:Name="button1" Text="1" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button1" Text="1" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="6" Grid.Column="0" Clicked="Button1_Clicked"/>
-        <Button x:Name="button2"  Text="2" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button2"  Text="2" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="6" Grid.Column="1" Clicked="Button2_Clicked"/>
-        <Button x:Name="button3"  Text="3" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button3"  Text="3" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="6" Grid.Column="2" Clicked="Button3_Clicked"/>
-        <Button x:Name="buttonAddition"  Text="+" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonAddition"  Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="6" Grid.Column="3" Clicked="ButtonAddition_Clicked"/>
 
-        <Button x:Name="buttonF" Text="F" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonF" Text="F" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="7" Grid.Column="0" Clicked="ButtonF_Clicked"/>
-        <Button x:Name="button0" Text="0" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="button0" Text="0" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="7" Grid.Column="1" Clicked="Button0_Clicked"/>
-        <Button x:Name="buttonDot"  Text="." FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonDot"  Text="." FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="7" Grid.Column="2" Clicked="ButtonDot_Clicked"/>
-        <Button x:Name="buttonEqual"  Text="=" FontSize="25" FontAttributes="Bold" BackgroundColor="#C0C0C0"
+        <Button x:Name="buttonEqual"  Text="=" FontSize="Title" FontAttributes="Bold" BackgroundColor="#C0C0C0"
                 Grid.Row="7" Grid.Column="3"  Clicked="ButtonEqual_Clicked"/>
 
 

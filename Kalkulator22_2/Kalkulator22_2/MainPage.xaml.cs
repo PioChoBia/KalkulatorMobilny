@@ -148,12 +148,12 @@ namespace Kalkulator22_2
 
         private void ButtonBracketLeft_Clicked(object sender, EventArgs e)
         {
-           // labelDisplay0.Text += "(";
+           labelDisplay0.Text += "(";
         }
 
         private void ButtonBracketRight_Clicked(object sender, EventArgs e)
         {
-           // labelDisplay0.Text += ")";
+           labelDisplay0.Text += ")";
         }
 
 

@@ -7,7 +7,14 @@ namespace Kalkulator22_2.Models
     public class Calculations
     {
 
+    //podział stringa poprzez nawiasy
+    public string StringSplit(string s1)
+        {
+            
 
+
+            return "12";
+        }
 
 
 
@@ -126,16 +133,6 @@ namespace Kalkulator22_2.Models
                 return elementList[0].Number.ToString();
             }
         }
-
-
-
-
-
-
-
-
-
-
 
 
     }
