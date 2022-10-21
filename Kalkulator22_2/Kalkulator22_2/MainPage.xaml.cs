@@ -122,8 +122,7 @@ namespace Kalkulator22_2
         private void ButtonDeleteSign_Clicked(object sender, EventArgs e)
         {
             if (labelDisplay0.Text.Length >0)
-                labelDisplay0.Text = 
-                    labelDisplay0.Text.Substring(0, labelDisplay0.Text.Length - 1);
+                labelDisplay0.Text = labelDisplay0.Text.Substring(0, labelDisplay0.Text.Length - 1);
         }
 
   
@@ -134,9 +133,9 @@ namespace Kalkulator22_2
 
             Calculations calculations = new Calculations();
 
-            labelDisplay1.Text =
-                calculations.CountSummationMultiplication(labelDisplay0.Text);
+            //  labelDisplay1.Text = calculations.CountSummationMultiplication(labelDisplay0.Text);
 
+            labelDisplay1.Text = calculations.StringSplit(labelDisplay0.Text);
 
 
         }

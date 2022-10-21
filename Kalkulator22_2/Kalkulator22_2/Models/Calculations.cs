@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace Kalkulator22_2.Models
@@ -10,10 +13,61 @@ namespace Kalkulator22_2.Models
     //podział stringa poprzez nawiasy
     public string StringSplit(string s1)
         {
-            
+            List<int> listPositionLeftBracket = new List<int>();
+            string errorSplit = "";
+    
+            for(int i=0; i<s1.Length; i++)
+            {
+                char c1 = s1[i];
+                if ( c1 == '(')
+                {
+                    listPositionLeftBracket.Add(i);
+                }
+                if ( c1 == ')')
+                {
+                    if (listPositionLeftBracket.Count > 0)
+                    {
+                        string s2 = s1.Substring(listPositionLeftBracket.Last() + 1, i-listPositionLeftBracket.Last()-1 );
+
+                        string s3 = CountSummationMultiplication(s2);
 
 
-            return "12";
+                        if (i + 1 < s1.Length)
+                        {
+                            s1 = s1.Substring(0, listPositionLeftBracket.Last()) + s3 + s1.Substring(i + 1);
+                        }
+                        else {
+                            s1 = s1.Substring(0, listPositionLeftBracket.Last()) + s3;
+                        }
+
+                        listPositionLeftBracket.Remove(listPositionLeftBracket.Last());
+                        i = i - 2 - s2.Length + s3.Length;
+
+                    }
+                    else
+                    {
+                        errorSplit = "brakuje nawiasu (";
+                    }
+                }
+            }
+
+            if (errorSplit == "")
+            {
+                return CountSummationMultiplication(s1);               
+
+
+
+
+            }
+            else return errorSplit;
+          
+
+
+           
+
+
+
+
         }
 
 
@@ -39,7 +93,9 @@ namespace Kalkulator22_2.Models
                 Element element = new Element();
                 double d1 = 0;
 
-                if (double.TryParse(number[i], out d1))
+                
+
+                if (double.TryParse(number[i], NumberStyles.Any, CultureInfo.InvariantCulture, out d1))
                 {
                     element.Number = d1;
                 }
@@ -129,8 +185,8 @@ namespace Kalkulator22_2.Models
                 return errorMathExpression;
             }
             else
-            {
-                return elementList[0].Number.ToString();
+            {                
+                return elementList[0].Number.ToString().Replace(',','.');
             }
         }
 
