@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -136,8 +137,11 @@ namespace Kalkulator22_2
             //  labelDisplay1.Text = calculations.CountSummationMultiplication(labelDisplay0.Text);
 
             labelDisplay1.Text = calculations.StringSplit(labelDisplay0.Text);
-
-
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+            var realHeightInPx = mainDisplayInfo.Height.ToString();
+            var realWidthInPx = mainDisplayInfo.Width.ToString();
+            labelDisplay3.Text = "wysokość " + realHeightInPx;
+            labelDisplay2.Text = "szerokość " + realWidthInPx;
         }
 
         private void ButtonF_Clicked(object sender, EventArgs e)

@@ -10,6 +10,7 @@ namespace Kalkulator22_2.Models
     public class Calculations
     {
 
+
     //podział stringa poprzez nawiasy
     public string StringSplit(string s1)
         {
@@ -51,24 +52,11 @@ namespace Kalkulator22_2.Models
                 }
             }
 
-            if (errorSplit == "")
-            {
-                return CountSummationMultiplication(s1);               
-
-
-
-
-            }
-            else return errorSplit;
-          
-
-
-           
-
-
-
+            if (errorSplit == "") return CountSummationMultiplication(s1);             
+            else return errorSplit;                   
 
         }
+
 
 
 
