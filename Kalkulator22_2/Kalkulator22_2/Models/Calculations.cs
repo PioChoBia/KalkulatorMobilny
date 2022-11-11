@@ -10,9 +10,8 @@ namespace Kalkulator22_2.Models
     public class Calculations
     {
 
-
     //podział stringa poprzez nawiasy
-    public string StringSplit(string s1)
+    public string StringSplitBracket(string s1)
         {
             List<int> listPositionLeftBracket = new List<int>();
             string errorSplit = "";
@@ -60,10 +59,10 @@ namespace Kalkulator22_2.Models
 
 
 
-     //liczenie prostego wyrazenia z mnozeniem i dodawaniem-----------------------------------------------------------------------------
+     //wyliczenie wyrazenia: dzielenie, mnozenie, odejmowanie, dodawanie --------------------------------
         public string CountSummationMultiplication(string mathExpression) {
 
-            if (mathExpression.Substring(0, 1) != "+" || mathExpression.Substring(0, 1) != "-")
+            if ( !( mathExpression.Substring(0, 1)=="+" || mathExpression.Substring(0, 1)=="-" ) )
                 mathExpression = "+" + mathExpression;
 
             String[] separator1 = { "+", "-", "*", "/" };
@@ -72,16 +71,13 @@ namespace Kalkulator22_2.Models
             String[] separator2 = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "." };
             String[] operation = mathExpression.Split(separator2, StringSplitOptions.RemoveEmptyEntries); ;
 
-
             string errorMathExpression = "";
             List<Element> elementList = new List<Element> { };
 
             for (int i = 0; i < number.Length; i++)
             {
                 Element element = new Element();
-                double d1 = 0;
-
-                
+                double d1 = 0;                              
 
                 if (double.TryParse(number[i], NumberStyles.Any, CultureInfo.InvariantCulture, out d1))
                 {
@@ -93,40 +89,60 @@ namespace Kalkulator22_2.Models
                     break;
                 }
 
+                if (operation[i].Length == 2)
+                {
+                    if (operation[i] == "+-")
+                    {
+                        element.Number = 0 - element.Number;
+                        operation[i] = "+";
+                    }
+                    if (operation[i] == "--")
+                    {
+                        element.Number = 0 - element.Number;
+                        operation[i] = "-";
+                    }
+                    if (operation[i] == "*-")
+                    {
+                        element.Number = 0 - element.Number;
+                        operation[i] = "*";
+                    }
+                    if (operation[i] == "/-")
+                    {
+                        element.Number = 0 - element.Number;
+                        operation[i] = "/";
+                    }
+                    if (operation[i].Length != 1)
+                    {
+                        errorMathExpression = "błędne połączenie operatorów";
+                        break;
+                    }
+                }
+
                 if (operation[i].Length == 1)
                 {
-                    //w pierwszym elemencie może być + lub -
-                    if (i == 0 && !(operation[i] == "+" || operation[i] == "-"))
+                    //w zerowym elemencie operator może być + lub - nie * lub /
+                    if (i == 0 && !(operation[0] == "+" || operation[0] == "-"))
                     {
                         errorMathExpression = "błędny operator pierwszej liczby";
                         break;
                     }
                     element.Operation = operation[i];
-                }
-                else
-                {
-                    errorMathExpression = "błędny operator";
-                    break;
-                }
+                 }
+
 
                 elementList.Add(element);
             }
 
-            if (errorMathExpression == "" && number.Length != operation.Length) errorMathExpression = "za dużo operatorów";
+
+            //za dużo operatorów, operator bez liczby
+            if (errorMathExpression == "" && number.Length != operation.Length) 
+                errorMathExpression = "operator bez liczby";
+
 
             if (errorMathExpression == "")
             {
-                for (int i = 0; i < elementList.Count; i++)
-                {
-                    if (elementList[i].Operation == "*")
-                    {
-                        elementList[i - 1].Number = elementList[i - 1].Number * elementList[i].Number;
-                        elementList.RemoveAt(i);
-                        i--;
-                    }
-                }
 
-                for (int i = 0; i < elementList.Count; i++)
+                for (int i = 1; i < elementList.Count; i++)
                 {
                     if (elementList[i].Operation == "/")
                     {
@@ -149,9 +165,9 @@ namespace Kalkulator22_2.Models
             {
                 for (int i = 1; i < elementList.Count; i++)
                 {
-                    if (elementList[i].Operation == "+")
+                    if (elementList[i].Operation == "*")
                     {
-                        elementList[i - 1].Number = elementList[i - 1].Number + elementList[i].Number;
+                        elementList[i - 1].Number = elementList[i - 1].Number * elementList[i].Number;
                         elementList.RemoveAt(i);
                         i--;
                     }
@@ -166,6 +182,17 @@ namespace Kalkulator22_2.Models
                         i--;
                     }
                 }
+
+                for (int i = 1; i < elementList.Count; i++)
+                {
+                    if (elementList[i].Operation == "+")
+                    {
+                        elementList[i - 1].Number = elementList[i - 1].Number + elementList[i].Number;
+                        elementList.RemoveAt(i);
+                        i--;
+                    }
+                }
+
             }
 
             if (errorMathExpression != "")

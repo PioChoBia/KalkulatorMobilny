@@ -19,26 +19,6 @@ namespace Kalkulator22_2
             InitializeComponent();
         }
 
-
-
-        private void ButtonMRC_Clicked(object sender, EventArgs e)
-        { 
-
-        }
-
-        private void ButtonMSubtraction_Clicked(object sender, EventArgs e)
-        {
-             
-        }
-
-        private void ButtonMAddition_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-
-
- 
         private void Button0_Clicked(object sender, EventArgs e)
         {
             labelDisplay0.Text += "0";
@@ -114,49 +94,45 @@ namespace Kalkulator22_2
             labelDisplay0.Text += "/";
         }
 
-        private void ButtonCE_Clicked(object sender, EventArgs e)
-        {
-            labelDisplay0.Text = "";
-           
-        }
-
-        private void ButtonDeleteSign_Clicked(object sender, EventArgs e)
-        {
-            if (labelDisplay0.Text.Length >0)
-                labelDisplay0.Text = labelDisplay0.Text.Substring(0, labelDisplay0.Text.Length - 1);
-        }
-
-  
-
-
-        private void ButtonEqual_Clicked(object sender, EventArgs e)
-        {
-
-            Calculations calculations = new Calculations();
-
-            //  labelDisplay1.Text = calculations.CountSummationMultiplication(labelDisplay0.Text);
-
-            labelDisplay1.Text = calculations.StringSplit(labelDisplay0.Text);
-            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-            var realHeightInPx = mainDisplayInfo.Height.ToString();
-            var realWidthInPx = mainDisplayInfo.Width.ToString();
-            labelDisplay3.Text = "wysokość " + realHeightInPx;
-            labelDisplay2.Text = "szerokość " + realWidthInPx;
-        }
-
-        private void ButtonF_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonBracketLeft_Clicked(object sender, EventArgs e)
         {
-           labelDisplay0.Text += "(";
+            labelDisplay0.Text += "(";
         }
 
         private void ButtonBracketRight_Clicked(object sender, EventArgs e)
         {
-           labelDisplay0.Text += ")";
+            labelDisplay0.Text += ")";
+        }
+
+        private void buttonAC_Clicked(object sender, EventArgs e)
+        {
+            labelDisplay0.Text = "";
+        }        
+
+        private void buttonDeleteSign_Clicked(object sender, EventArgs e)
+        {
+            if (labelDisplay0.Text.Length > 0)
+                labelDisplay0.Text = labelDisplay0.Text.Substring(0, labelDisplay0.Text.Length - 1);
+        }
+
+
+        private void ButtonEqual_Clicked(object sender, EventArgs e)
+        {
+            //szerokość i wysokość ekranu
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+            var realHeightInPx = mainDisplayInfo.Height;
+            var realWidthInPx = mainDisplayInfo.Width;
+            double hightCell = (double)realHeightInPx/10 ;
+            double widthCell = (double)realWidthInPx/4 ;
+                        
+
+            //labelDisplay0.FontSize = 20;
+
+
+            Calculations calculations = new Calculations();
+            labelDisplay0.Text = calculations.StringSplitBracket(labelDisplay0.Text);
+            
+
         }
 
 
