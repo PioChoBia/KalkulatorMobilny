@@ -62,8 +62,7 @@ namespace Kalkulator22_2.Models
      //wyliczenie wyrazenia: dzielenie, mnozenie, odejmowanie, dodawanie --------------------------------
         public string CountSummationMultiplication(string mathExpression) {
 
-            if ( !( mathExpression.Substring(0, 1)=="+" || mathExpression.Substring(0, 1)=="-" ) )
-                mathExpression = "+" + mathExpression;
+            mathExpression = "+" + mathExpression;
 
             String[] separator1 = { "+", "-", "*", "/" };
             String[] number = mathExpression.Split(separator1, StringSplitOptions.RemoveEmptyEntries);

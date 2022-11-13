@@ -14,6 +14,9 @@ namespace Kalkulator22_2
 {
     public partial class MainPage : ContentPage
     {
+        public string stringEdytorAll = "";
+        public string stringEdytorNewExpression = "";
+
         public MainPage()
         {
             InitializeComponent();
@@ -21,117 +24,135 @@ namespace Kalkulator22_2
 
         private void Button0_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "0";
+            stringEdytorNewExpression += "0";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button1_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "1";
+            stringEdytorNewExpression += "1";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button2_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "2";
+            stringEdytorNewExpression += "2";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button3_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "3";
+            stringEdytorNewExpression += "3";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button4_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "4";
+            stringEdytorNewExpression += "4";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button5_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "5";
+            stringEdytorNewExpression += "5";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button6_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "6";
+            stringEdytorNewExpression += "6";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button7_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "7";
+            stringEdytorNewExpression += "7";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button8_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "8";
+            stringEdytorNewExpression += "8";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void Button9_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "9";
+            stringEdytorNewExpression += "9";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonDot_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += ".";
+            stringEdytorNewExpression += ".";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonAddition_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "+";
+            stringEdytorNewExpression += "+";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonSubtraction_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "-";
+            stringEdytorNewExpression += "-";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonMultiplication_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "*";
+            stringEdytorNewExpression += "*";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonDivide_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "/";
+            stringEdytorNewExpression += "/";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonBracketLeft_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += "(";
+            stringEdytorNewExpression += "(";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void ButtonBracketRight_Clicked(object sender, EventArgs e)
         {
-            editor0.Text += ")";
+            stringEdytorNewExpression += ")";
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
         private void buttonAC_Clicked(object sender, EventArgs e)
         {
-            editor0.Text = "";
+            stringEdytorNewExpression = "";
+            editor0.Text = stringEdytorAll;
         }        
 
         private void buttonDeleteSign_Clicked(object sender, EventArgs e)
         {
-            if (editor0.Text.Length > 0)
-                editor0.Text = editor0.Text.Substring(0, editor0.Text.Length - 1);
+            if (stringEdytorNewExpression.Length > 0)
+            {
+                stringEdytorNewExpression =
+                    stringEdytorNewExpression.Substring(0, stringEdytorNewExpression.Length - 1);
+            }
+            editor0.Text = stringEdytorAll + stringEdytorNewExpression;
         }
 
 
         private void ButtonEqual_Clicked(object sender, EventArgs e)
         {
-            //szerokość i wysokość ekranu
-            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-            var realHeightInPx = mainDisplayInfo.Height;
-            var realWidthInPx = mainDisplayInfo.Width;
-            double hightCell = (double)realHeightInPx/10 ;
-            double widthCell = (double)realWidthInPx/4 ;
-                        
+            if ( stringEdytorNewExpression.Length>0)
+            {
+                Calculations calculations = new Calculations();
 
-            //editor0.FontSize = 20;
+                stringEdytorAll +=
+                    stringEdytorNewExpression + System.Environment.NewLine + System.Environment.NewLine;
 
-
-            Calculations calculations = new Calculations();
-            editor0.Text = calculations.StringSplitBracket(editor0.Text);
-            
+                stringEdytorNewExpression = calculations.StringSplitBracket(stringEdytorNewExpression);
+                editor0.Text = stringEdytorAll + stringEdytorNewExpression;
+            }
 
         }
 
