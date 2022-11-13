@@ -21,98 +21,98 @@ namespace Kalkulator22_2
 
         private void Button0_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "0";
+            editor0.Text += "0";
         }
 
         private void Button1_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "1";
+            editor0.Text += "1";
         }
 
         private void Button2_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "2";
+            editor0.Text += "2";
         }
 
         private void Button3_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "3";
+            editor0.Text += "3";
         }
 
         private void Button4_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "4";
+            editor0.Text += "4";
         }
 
         private void Button5_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "5";
+            editor0.Text += "5";
         }
 
         private void Button6_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "6";
+            editor0.Text += "6";
         }
 
         private void Button7_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "7";
+            editor0.Text += "7";
         }
 
         private void Button8_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "8";
+            editor0.Text += "8";
         }
 
         private void Button9_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "9";
+            editor0.Text += "9";
         }
 
         private void ButtonDot_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += ".";
+            editor0.Text += ".";
         }
 
         private void ButtonAddition_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "+";
+            editor0.Text += "+";
         }
 
         private void ButtonSubtraction_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "-";
+            editor0.Text += "-";
         }
 
         private void ButtonMultiplication_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "*";
+            editor0.Text += "*";
         }
 
         private void ButtonDivide_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "/";
+            editor0.Text += "/";
         }
 
         private void ButtonBracketLeft_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += "(";
+            editor0.Text += "(";
         }
 
         private void ButtonBracketRight_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text += ")";
+            editor0.Text += ")";
         }
 
         private void buttonAC_Clicked(object sender, EventArgs e)
         {
-            labelDisplay0.Text = "";
+            editor0.Text = "";
         }        
 
         private void buttonDeleteSign_Clicked(object sender, EventArgs e)
         {
-            if (labelDisplay0.Text.Length > 0)
-                labelDisplay0.Text = labelDisplay0.Text.Substring(0, labelDisplay0.Text.Length - 1);
+            if (editor0.Text.Length > 0)
+                editor0.Text = editor0.Text.Substring(0, editor0.Text.Length - 1);
         }
 
 
@@ -126,11 +126,11 @@ namespace Kalkulator22_2
             double widthCell = (double)realWidthInPx/4 ;
                         
 
-            //labelDisplay0.FontSize = 20;
+            //editor0.FontSize = 20;
 
 
             Calculations calculations = new Calculations();
-            labelDisplay0.Text = calculations.StringSplitBracket(labelDisplay0.Text);
+            editor0.Text = calculations.StringSplitBracket(editor0.Text);
             
 
         }
