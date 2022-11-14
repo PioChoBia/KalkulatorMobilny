@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.221029" package="com.companyname.kalkulator22_2" android:installLocation="auto" android:versionCode="221026">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.1.221113" package="com.companyname.kalkulator22_2" android:installLocation="auto" android:versionCode="221026">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
-	<application android:label="Kalkulator22_2.Android" android:theme="@style/MainTheme"></application>
+	<application android:label="calc" android:theme="@style/MainTheme"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

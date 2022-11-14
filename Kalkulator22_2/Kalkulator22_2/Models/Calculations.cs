@@ -88,6 +88,17 @@ namespace Kalkulator22_2.Models
                     break;
                 }
 
+                //w zerowym elemencie operator może być tylko + lub ++ lub *-
+                if (i == 0)
+                {
+                    if (!(operation[0] == "+" || operation[0] == "++" || operation[0] == "+-"))
+                    {
+                        errorMathExpression = "błędny operator pierwszej liczby";
+                        break;
+                    }
+                        
+                }
+
                 if (operation[i].Length == 2)
                 {
                     if (operation[i] == "+-")
@@ -119,12 +130,6 @@ namespace Kalkulator22_2.Models
 
                 if (operation[i].Length == 1)
                 {
-                    //w zerowym elemencie operator może być + lub - nie * lub /
-                    if (i == 0 && !(operation[0] == "+" || operation[0] == "-"))
-                    {
-                        errorMathExpression = "błędny operator pierwszej liczby";
-                        break;
-                    }
                     element.Operation = operation[i];
                  }
 
