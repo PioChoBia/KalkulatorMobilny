@@ -22,6 +22,8 @@ namespace Kalkulator22_2
             InitializeComponent();
         }
 
+
+ 
         private void Button0_Clicked(object sender, EventArgs e)
         {
             stringEditorNewExpression += "0";
